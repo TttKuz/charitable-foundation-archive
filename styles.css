@@ -1,6 +1,6 @@
 @font-face {
    font-family: Inter;
-   src: url('Inter-Regular.ttf') format('ttf');
+   src: url('css/fonts/Inter-Regular.ttf') format('ttf');
 }
 
 * {
@@ -15,7 +15,7 @@ body {
 header {
    max-height: 96px;
    background-color: #CCECF4;
-   padding: 24px 120px 24px 120px;
+   padding: 24px 120px;
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -23,8 +23,8 @@ header {
 }
 
 .name img {
-   width: 40px;
-   height: 40px;
+   max-width: 40px;
+   max-height: 40px;
    margin-right: 16px;
 }
 
@@ -62,6 +62,61 @@ nav a:hover {
    text-decoration: underline;
 }
 
+/* Медиа-запросы для адаптивности */
+@media (max-width: 1199px) {
+   header {
+      padding: 24px 80px;
+   }
+}
+
+@media (max-width: 991px) {
+   header {
+      padding: 24px 40px;
+   }
+
+   .name img {
+      max-width: 30px;
+      max-height: 30px;
+      margin-right: 12px;
+   }
+
+   nav li {
+      margin-right: 18px;
+   }
+}
+
+@media (max-width: 767px) {
+   header {
+      flex-direction: column;
+      padding: 20px;
+      max-height: none;
+   }
+
+   .name {
+      margin-bottom: 16px;
+   }
+
+   nav li {
+      margin-right: 12px;
+   }
+}
+
+@media (max-width: 479px) {
+   .name img {
+      max-width: 24px;
+      max-height: 24px;
+      margin-right: 8px;
+   }
+
+   nav li {
+      margin-right: 8px;
+   }
+
+   nav a {
+      font-size: 16px;
+   }
+}
+
 .slider img {
    width: 100%;
    margin-bottom: 40px;
@@ -95,7 +150,7 @@ nav a:hover {
 
 .more img {
    padding: 4px 0 0 16px;
-   height: 8px;
+   max-height: 8px;
 }
 
 .more:hover {
@@ -116,7 +171,7 @@ nav a:hover {
    align-items: start;
    padding: 0px;
    border: none;
-   width: 384px;
+   max-width: 384px;
 }
 
 progress {
@@ -124,8 +179,8 @@ progress {
    background-color: #000000;
    margin: 0px;
    padding: 0px;
-   width: 384px;
-   height: 10px;
+   max-width: 384px;
+   max-height: 10px;
 }
 
 progress::-moz-progress-bar {
@@ -143,7 +198,7 @@ progress::-webkit-progress-value {
 }
 
 .money {
-   width: 384px;
+   max-width: 384px;
 }
 
 .end {
@@ -171,7 +226,7 @@ progress::-webkit-progress-value {
    background-color: #3ED6FF;
    font-size: 32px;
    border-radius: 100px;
-   padding: 20px 53px 20px 53px;
+   padding: 20px 53px;
    border: none;
    text-decoration: none;
 }
@@ -197,8 +252,32 @@ progress::-webkit-progress-value {
 
 
 .card img {
-   width: 384px;
-   height: 384px;
+   max-width: 384px;
+   max-height: 384px;
+}
+
+@media (min-width: 768px) {
+   .cards {
+      grid-template-columns: repeat(2, 384px);
+   }
+}
+
+@media (min-width: 1200px) {
+   .cards {
+      grid-template-columns: repeat(3, 384px);
+   }
+}
+
+@media (max-width: 991px) {
+   .cards {
+      grid-template-columns: repeat(1, 384px);
+   }
+}
+
+@media (max-width: 767px) {
+   .card {
+      max-width: 300px;
+   }
 }
 
 .allnews {
@@ -213,7 +292,8 @@ progress::-webkit-progress-value {
 }
 
 .description {
-   width: 894px;
+   max-width: 894px;
+   max-height: 186px;
    display: flex;
    flex-direction: column;
    align-items: start;
@@ -223,7 +303,7 @@ progress::-webkit-progress-value {
 .new {
    display: flex;
    flex-direction: row;
-   margin-left: 120px;
+   margin: 0 120px;
 }
 
 .new p {
@@ -241,6 +321,34 @@ progress::-webkit-progress-value {
    display: grid;
    grid-template-rows: repeat(2, 282px);
    gap: 48px;
+}
+
+@media (max-width: 1199px) {
+   .news {
+      grid-template-rows: repeat(2, 282px);
+   }
+}
+
+@media (max-width: 991px) {
+   .description {
+      max-width: 600px;
+      max-height: 125px;
+   }
+
+   .description p {
+      visibility: hidden;
+   }
+}
+
+@media (max-width: 767px) {
+   .description {
+      max-width: 400px;
+      max-height: 84px;
+   }
+
+   .description p {
+      visibility: hidden;
+   }
 }
 
 .documents {
@@ -270,15 +378,38 @@ progress::-webkit-progress-value {
    margin-bottom: 48px;
 }
 
+@media (max-width: 1199px) {
+   .docs {
+      grid-template-columns: repeat(3, 282px);
+   }
+}
+
+@media (max-width: 991px) {
+   .docs {
+      grid-template-columns: repeat(2, 282px);
+   }
+}
+
+@media (max-width: 767px) {
+   .docs {
+      grid-template-columns: repeat(1, 282px);
+   }
+}
+
+@media (max-width: 479px) {
+   .doc {
+      margin-bottom: 24px;
+   }
+}
+
 .needhelp {
    display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: space-between;
+   justify-content: center;
 }
 
 .needhelp img {
    margin-right: 200px;
+   float: right;
 }
 
 .needtext {
@@ -287,10 +418,11 @@ progress::-webkit-progress-value {
    width: 612px;
    font-size: 20px;
    margin: 0 0 0 120px;
+   float: left;
 }
 
 .need a {
-   width: 384px;
+   max-width: 384px;
    margin-top: 48px;
    color: #000000;
    background-color: #3ED6FF;
@@ -308,6 +440,13 @@ progress::-webkit-progress-value {
 
 .need {
    margin-bottom: 80px;
+   justify-content: center;
+}
+
+@media (max-width: 767px) {
+   .needhelp img {
+      display: none;
+   }
 }
 
 .partnersimg {
@@ -318,12 +457,30 @@ progress::-webkit-progress-value {
 }
 
 .partnersimg img {
-   width: 282px;
-   height: 282px;
+   max-width: 282px;
+   max-height: 282px;
 }
 
 .partners {
    margin-bottom: 88px;
+}
+
+@media (max-width: 1199px) {
+   .partnersimg {
+      grid-template-columns: repeat(3, 282px);
+   }
+}
+
+@media (max-width: 991px) {
+   .partnersimg {
+      grid-template-columns: repeat(2, 282px);
+   }
+}
+
+@media (max-width: 767px) {
+   .partnersimg {
+      grid-template-columns: repeat(1, 282px);
+   }
 }
 
 .social {
@@ -364,4 +521,22 @@ progress::-webkit-progress-value {
    gap: 40px;
    justify-content: center;
    font-size: 20px;
+}
+
+@media (max-width: 1199px) {
+   .data {
+      grid-template-columns: repeat(3, 282px);
+   }
+}
+
+@media (max-width: 991px) {
+   .data {
+      grid-template-columns: repeat(2, 282px);
+   }
+}
+
+@media (max-width: 767px) {
+   .data {
+      grid-template-columns: repeat(1, 282px);
+   }
 }
